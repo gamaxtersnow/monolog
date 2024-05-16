@@ -1,5 +1,5 @@
 <?php
-    namespace app\service\log\monolog\Formatter;
+    namespace MLog\Formatter;
 
     use Monolog\Formatter\ElasticaFormatter;
     use Monolog\Logger;

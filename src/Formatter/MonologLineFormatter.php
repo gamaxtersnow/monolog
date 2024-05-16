@@ -1,6 +1,6 @@
 <?php
 
-namespace app\service\log\monolog\Formatter;
+namespace MLog\Formatter;
 use Monolog\Formatter\LineFormatter;
 
 class MonologLineFormatter extends LineFormatter {

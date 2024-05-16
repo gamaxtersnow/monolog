@@ -1,23 +1,22 @@
 <?php
 
-namespace app\service\log\monolog;
+namespace MLog;
 
-use app\service\log\monolog\Formatter\MonologElasticaFormatter;
-use app\service\log\monolog\Formatter\MonologHtmlFormatter;
-use app\service\log\monolog\Formatter\MonologJsonFormatter;
-use app\service\log\monolog\Formatter\MonologLineFormatter;
-use app\service\log\monolog\Formatter\MonologLogstashFormatter;
-use app\service\log\monolog\Handler\MonologElasticSearchHandler;
-use app\service\log\monolog\Handler\MonologFileStreamHandler;
-use app\service\log\monolog\Handler\MonologMongoDBHandler;
+use MLog\Formatter\MonologElasticaFormatter;
+use MLog\Formatter\MonologHtmlFormatter;
+use MLog\Formatter\MonologJsonFormatter;
+use MLog\Formatter\MonologLineFormatter;
+use MLog\Formatter\MonologLogstashFormatter;
+use MLog\Handler\MonologElasticSearchHandler;
+use MLog\Handler\MonologFileStreamHandler;
+use MLog\Handler\MonologMongoDBHandler;
 use Monolog\Logger;
 use Monolog\Processor\UidProcessor;
 use Monolog\Processor\WebProcessor;
 use Psr\Log\LoggerInterface;
-use think\log\driver\File;
 
 
-class MonologLogger extends File implements LoggerInterface
+class MonologLogger implements LoggerInterface
 {
     private $_config;
     private $_appName;
@@ -42,7 +41,7 @@ class MonologLogger extends File implements LoggerInterface
         'es'=>MonologElasticaFormatter::class
     ];
     public function __construct(){
-        $this->_logConfig = config('monolog');
+        $this->_logConfig = config('src');
     }
     private function _setFormatter(){
         $this->_formatter = invoke($this->_getFormatter($this->_config['formatter']),[$this->_config]);
