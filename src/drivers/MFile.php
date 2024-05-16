@@ -1,8 +1,8 @@
 <?php
 
-namespace app\service\log\drivers;
+namespace MLog\drivers;
 
-use app\service\log\monolog\Formatter\MonologLineFormatter;
+use MLog\Formatter\MonologLineFormatter;
 use Exception;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
